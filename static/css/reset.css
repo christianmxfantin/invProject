@@ -1,0 +1,16 @@
+/* Estilos para resetear el CSS, colores y estilos minimos  */
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    box-sizing: border-box;
+}
+
+
+/* Colores con variables  */

@@ -1,0 +1,541 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    background-image: url(/16b.Proyecto2/images/books.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow-y: hidden;
+    height: 100%;
+}
+
+#dashboard, #dashboard-desktop, #desktop-menu__add,
+.am-product__container, #menu-desktop, #openModal {
+    display: none;
+}
+
+.login-logo__container, .menu-login-logo__container,
+#login-form, #am-product, #amd-product #menu-login, .menu-login__body, 
+.product__container, .product-desktop__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.login-logo__container {
+    flex-direction: row;
+    font-size: 24px;
+    margin: 1em 0 0 1em
+}
+
+.login-img, .menu-login__img, .login-logo__icon, .menu-login-logo__icon,
+.desktop-menu__icon {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    background-color: green;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+.fa-user-circle {
+    font-size: 9em;
+}
+
+.login-logo__icon, .desktop-menu__icon {
+    width: 50px;
+    height: 50px;
+    margin-right: .5em;
+    font-weight: bold;
+}
+
+.login-logo__title {
+    color: white;
+}
+
+#login-username, #login-password,
+#am-product__description, #am-product__quantity, #am-product__unit-price,
+#amd-product__description, #amd-product__quantity, #amd-product__unit-price {
+    margin: 1.2em;
+}
+
+.login-img {
+    margin: 1em 0 1.5em 0;
+}
+
+#login-username, #login-password {
+    caret-color: white;
+    color: white;
+}
+
+#login-submit:hover,
+.main-menu__icon, .main-menu__add, .main-menu__delete, .desktop-menu__delete
+.product__img, .product-description__container, #product__delete-item,
+.menu-login__close, .menu-login__delete-account, .menu-login__logout,
+#am-product__save, #amd-product__save, #product-desktop__delete-item, .product-desktop__description,
+#desktop-menu__add, #desktop-menu__delete, #desktop-menu__username {
+    cursor: pointer;
+}
+
+#login-username:focus, #login-password:focus, #dashboard-search,
+#am-product__description:focus, #am-product__quantity:focus, 
+#am-product__unit-price:focus,
+#desktop-search:focus,
+#amd-product__description:focus, #amd-product__quantity:focus, 
+#amd-product__unit-price:focus {
+    outline: none;
+}
+
+#login-username, #login-password,
+#am-product__description, #am-product__quantity, #am-product__unit-price,
+#amd-product__description, #amd-product__quantity, #amd-product__unit-price {
+    width: 80%;
+    background: none;
+    border: none;
+    border-bottom: 1px solid white;
+    font-size: 1.2em;
+}
+
+#login-username::placeholder, #login-password::placeholder {
+    color: white;
+}
+
+#login-submit, #am-product__save, #amd-product__save {
+    margin-top: 2em;
+    width: 150px;
+    height: 50px;
+    font-size: 1.2em;
+    border: none;
+    background-color: blue;
+    color: white;
+}
+
+#menu-login {
+    width: 100vw;
+    height: 100vh;
+    font-size: 1.3em;
+    background-color:darkslategray;
+    position: absolute;
+    left: 0vw;
+}
+
+.slide-in {
+    animation: slide-in 2s ease;
+}
+
+@keyframes slide-in {
+    from {
+        left: -100vw;
+    }
+    to {
+        left: 0;
+    }
+}
+
+.slide-out {
+    animation: slide-out 2s ease;
+}
+
+@keyframes slide-out {
+    from {
+        left: 0vw;
+    }
+    to {
+        left: -100vw;
+    }
+}
+
+.menu-login-logo__container {
+    flex-direction: row;
+}
+
+
+.menu-login-logo__icon{
+    width: 30px;
+    height: 30px;
+    margin-right: .5em;
+    font-size: 18px;
+}
+
+.menu-login__title {
+    display: flex;
+    padding: .6em;
+    margin-bottom: .5em;
+    color: white;
+    border-bottom: white 1px solid;
+}
+
+.menu-login__close {
+    margin-left: auto;
+}
+
+.menu-login__img, .menu-login__body {
+    margin: 1.5em 0 1.5em 30%; 
+}
+
+.menu-login__img {
+    width: 100px;
+    height: 100px;
+}
+
+.login-img__icon {
+    font-size: 4em;
+}
+
+.menu-login__body {
+    align-items: flex-start;
+    color: white;
+}
+
+.menu-login__username {
+    font-weight: bold;
+}
+
+.menu-login__username, .menu-login__delete-account, .menu-login__logout {
+    margin-bottom: .5em;
+}
+
+#main-menu__container, #desktop-menu__container {
+    position: fixed;
+    background-color: white;
+}
+
+.main-menu, .desktop-menu {
+    width: 100vw;
+    display: flex;
+    list-style: none;
+    padding: .75em;
+    background-color: rgb(26, 133, 133);
+    color: white;
+    margin-bottom: .5em;
+    font-size: 1.3em;
+}
+
+.main-menu__title {
+    margin-right: auto;
+    padding-left: .75em;
+}
+
+.main-menu__add {
+    padding-right: .75em;
+}
+
+.main-menu__delete {
+    padding-right: 1.4em;
+}
+
+#am-product__description::placeholder, #am-product__quantity::placeholder, #am-product__unit-price::placeholder,
+#amd-product__description::placeholder, #amd-product__quantity::placeholder, #amd-product__unit-price::placeholder {
+    color: rgb(26, 133, 133);
+}
+
+.am-product__container {
+    margin-top: 5em;
+}
+
+#am-product__description, #am-product__quantity, #am-product__unit-price,
+#amd-product__description, #amd-product__quantity, #amd-product__unit-price {
+    border-bottom: 1px solid rgb(26, 133, 133);
+    caret-color: rgb(26, 133, 133);
+    color: rgb(26, 133, 133);
+}
+
+.am-product__img, .amd-product__img {
+    width: 80%;
+    height: 150px;
+    background-color: grey;
+    margin-top: 2em;
+}
+
+#dashboard {
+    overflow-y: scroll;
+    overflow-x: hidden;
+    scrollbar-width: none;
+    width: 100%;
+    height: 100%;
+}
+
+#dashboard::-webkit-scrollbar {
+    display: none;
+}
+
+.product__container, .product-desktop__container {
+    width: 100vw;
+    height: 100px;
+    flex-direction: row;
+    justify-content: space-between;
+    border-bottom: black 1px solid;
+}
+
+.product__img {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background-color: darkmagenta;
+    margin-left: .5em;
+}
+
+.product-description__container {
+    margin-bottom: .3em;
+}
+
+.product__description {
+    width: 12em;
+    font-size: 1em;
+    font-weight: bold;
+    margin-bottom: .1em;
+}
+
+.product__quantity, .product-desktop__quantity {
+    background-color: green;
+    color: white;
+    font-size: .9em;
+    margin-bottom: .1em;
+}
+
+.product__unit-price {
+    color: darkblue;
+    font-weight: bold;
+    font-size: .9em;
+}
+
+#product__delete-item, #product-desktop__delete-item, #desktop-menu__add {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background-color: red;
+    font-weight: bold;
+    font-size: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    margin-right: .25em;
+}
+
+footer {
+    margin-top: auto;
+    background-color: gray;
+    height: 2.7em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.border-red {
+    outline-style: solid;
+    outline-color: red;
+}
+
+/* Desktop Breakpoint*/
+@media (min-width: 1024px) {  
+    #login-username, #login-password {
+        width: 30%;
+    }
+
+    /* .desktop-menu {
+        font-size: 1.3em;
+    } */
+
+    .desktop-menu__title {
+        margin-right: auto;
+    }
+
+    .desktop-menu__icon {
+        width: 30px;
+        height: 30px;
+        font-size: .5em;
+    }
+
+    .search__container, .table__container {
+        display: flex;
+    }
+
+    .table__container {
+        display: flex;
+        /* justify-content: space-between; */
+        font-weight: bold;
+        color: grey;
+        margin-top: 3em;
+    }
+
+    .product-desktop__container {
+        font-weight: bold;
+        color: #333;
+        justify-content: flex-start;
+        height: 3.6em;
+    }
+
+    .table__id, .product-desktop__id {
+        margin-left: 3em;
+    }
+
+    .table__description, .product-desktop-description__container {
+        width: 15em;
+        margin-left: 10em;
+    }
+
+    .table__unit-price, .product-desktop__unit-price {
+        width: 8em;
+        margin-left: 7em;
+    }
+
+    .product-desktop__quantity {
+        width: 7em;
+    }
+
+    .table__quantity, .product-desktop__quantity {
+        margin-left: 9em;
+    }
+
+    .table__total-price, .product-desktop__total-price {
+        margin-left: 11em;
+    }
+
+    #product-desktop__delete-item {
+        margin-left: 2.1em;
+    }
+
+
+    #dashboard-desktop {
+        margin-top: 9em;
+    }
+
+    #desktop-search {
+        width: 200px;
+        font-size: .8em;
+    }
+
+    #desktop-search,
+    .desktop-menu__username {
+        margin-right: 1.3em;
+    }
+
+    .desktop-menu__delete {
+        margin-right: .7em;
+    }
+
+    .desktop-menu__login-img, .product-desktop__img {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 25px;
+        height: 25px;
+        border-radius: 50%;
+        background-color: darkmagenta;
+        color: white;
+        margin-right: .2em;
+        font-size: 1em;
+    }
+
+    .fa-user-circle__username {
+        font-size: .9em;
+    }
+
+    .product-desktop-description__container {
+        display: flex;
+        align-items: center;
+    }
+
+    .product-desktop__description:hover {
+        color: blue;
+        text-decoration: underline;
+        transition: all 1s;
+    }
+
+    #desktop-menu__add {
+        width: 50px;
+        height: 50px;
+        background-color: rgb(26, 133, 133);
+        font-size: 54px;
+        position: absolute;
+        bottom: 1.2em;
+        right: .9em;
+    }
+
+    .desktop-menu__link {
+        text-decoration: none;
+    }
+
+    .modalDialog {
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background: rgba(0,0,0,0.8);
+        z-index: 99999;
+        opacity:0;
+        transition: opacity 400ms ease-in;
+        pointer-events: none;
+    }
+    .modalDialog:target {
+        opacity: 1;
+        pointer-events: auto;
+    }
+    .modalDialog .first {
+        width: 600px;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-content: center;
+        margin: 5% auto;
+        background: white;
+        transition: opacity 400ms ease-in;
+    }
+    .close {
+        position: absolute;
+        right: 5px;
+        top: 13px;
+        width: 24px;
+        text-decoration: none;
+        font-weight: bold;
+        color: white;
+    }
+
+    #modalTitle {
+        width: 600px;
+        background-color: red;
+        color: white;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        font-size: 24px;
+        font-weight: bold;
+    }
+
+    #amd-product__save {
+        margin-bottom: 2em;
+        margin-left: 35%;
+    }
+
+    #menu-desktop {
+        width: 150px;
+        height: 50px;
+        right: 0;
+        top: 50px;
+        background-color: gray;
+        position: absolute;
+    }
+
+    .border-red {
+        outline-style: solid;
+        outline-color: red;
+    }
+
+}

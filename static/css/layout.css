@@ -1,6 +1,6 @@
 /* Estilos para segmentos especificos del Layout */
 
-.login-container {
+.login-container, .register-container {
   background-image: url(/static/assets/images/books.jpg);
   background-repeat: no-repeat;
   background-size: cover;
@@ -54,6 +54,10 @@
     margin: 1.2em;
 }
 
+[id*="register-form__"] {
+    margin: .8em;
+}
+
 .login-img {
     margin: 1em 0 1.5em 0;
 }
@@ -73,6 +77,7 @@
 }
 
 #login-form__username, #login-form__password,
+[id*="register-form__"],
 #am-product__description, #am-product__quantity, #am-product__unit-price,
 #amd-product__description, #amd-product__quantity, #amd-product__unit-price {
     width: 80%;

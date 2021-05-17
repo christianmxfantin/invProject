@@ -21,7 +21,7 @@ body {
     /* height: 100%; */
 }
 
-.register-container, #menu-login, #dashboard, #dashboard-desktop, 
+#menu-login, #dashboard, #dashboard-desktop, 
 #main-menu__container, #desktop-menu__container,
 .am-product__container, #menu-desktop, #openModal,
 footer {

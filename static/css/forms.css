@@ -1,1 +1,18 @@
 /* Estilos para Formularios */
+
+#login-form, #register-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.login-form__logo, .register-form__logo-container {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    /* background-color: darkmagenta; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}

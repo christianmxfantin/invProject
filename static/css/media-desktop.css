@@ -1,4 +1,188 @@
 /* Media Query de Desktop */
 @media screen and (min-width: 1024px) {
+    #login-username, #login-password {
+    width: 30%;
+    }
 
+    .desktop-menu__title {
+    margin-right: auto;
+    }
+
+    .desktop-menu__icon {
+    width: 30px;
+    height: 30px;
+    font-size: .5em;
+    }
+
+    .search__container, .table__container {
+    display: flex;
+    }
+
+    .table__container {
+    display: flex;
+    /* justify-content: space-between; */
+    font-weight: bold;
+    color: grey;
+    margin-top: 3em;
+    }
+
+    .product-desktop__container {
+    font-weight: bold;
+    color: #333;
+    justify-content: flex-start;
+    height: 3.6em;
+    }
+
+    .table__id, .product-desktop__id {
+    margin-left: 3em;
+    }
+
+    .table__description, .product-desktop-description__container {
+    width: 15em;
+    margin-left: 10em;
+    }
+
+    .table__unit-price, .product-desktop__unit-price {
+    width: 8em;
+    margin-left: 7em;
+    }
+
+    .product-desktop__quantity {
+    width: 7em;
+    }
+
+    .table__quantity, .product-desktop__quantity {
+    margin-left: 9em;
+    }
+
+    .table__total-price, .product-desktop__total-price {
+    margin-left: 11em;
+    }
+
+    #product-desktop__delete-item {
+    margin-left: 2.1em;
+    }
+
+
+    #dashboard-desktop {
+    margin-top: 9em;
+    }
+
+    #desktop-search {
+    width: 200px;
+    font-size: .8em;
+    }
+
+    #desktop-search,
+    .desktop-menu__username {
+    margin-right: 1.3em;
+    }
+
+    .desktop-menu__delete {
+    margin-right: .7em;
+    }
+
+    .desktop-menu__login-img, .product-desktop__img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background-color: darkmagenta;
+    color: white;
+    margin-right: .2em;
+    font-size: 1em;
+    }
+
+    .fa-user-circle__username {
+    font-size: .9em;
+    }
+
+    .product-desktop-description__container {
+    display: flex;
+    align-items: center;
+    }
+
+    .product-desktop__description:hover {
+    color: blue;
+    text-decoration: underline;
+    transition: all 1s;
+    }
+
+    #desktop-menu__add {
+    width: 50px;
+    height: 50px;
+    background-color: rgb(26, 133, 133);
+    font-size: 54px;
+    position: absolute;
+    bottom: 1.2em;
+    right: .9em;
+    }
+
+    .desktop-menu__link {
+    text-decoration: none;
+    }
+
+    .modalDialog {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0,0,0,0.8);
+    z-index: 99999;
+    opacity:0;
+    transition: opacity 400ms ease-in;
+    pointer-events: none;
+    }
+    .modalDialog:target {
+    opacity: 1;
+    pointer-events: auto;
+    }
+    .modalDialog .first {
+    width: 600px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    margin: 5% auto;
+    background: white;
+    transition: opacity 400ms ease-in;
+    }
+    .close {
+    position: absolute;
+    right: 5px;
+    top: 13px;
+    width: 24px;
+    text-decoration: none;
+    font-weight: bold;
+    color: white;
+    }
+
+    #modalTitle {
+    width: 600px;
+    background-color: red;
+    color: white;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    font-size: 24px;
+    font-weight: bold;
+    }
+
+    #amd-product__save {
+    margin-bottom: 2em;
+    margin-left: 35%;
+    }
+
+    #menu-desktop {
+    width: 150px;
+    height: 50px;
+    right: 0;
+    top: 50px;
+    background-color: gray;
+    position: absolute;
+    }
 }

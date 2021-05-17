@@ -8,9 +8,31 @@
     font-family: 'Roboto', sans-serif;
 }
 
-body {
-    box-sizing: border-box;
+html {
+    height: 100%;
 }
 
+body {
+    box-sizing: border-box;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    /* overflow-y: hidden; */
+    /* height: 100%; */
+}
 
-/* Colores con variables  */
+.register-container, #menu-login, #dashboard, #dashboard-desktop, 
+#main-menu__container, #desktop-menu__container,
+.am-product__container, #menu-desktop, #openModal,
+footer {
+    display: none;
+}
+
+#login-submit:hover,
+.main-menu__icon, .main-menu__add, .main-menu__delete, .desktop-menu__delete
+.product__img, .product-description__container, #product__delete-item,
+.menu-login__close, .menu-login__delete-account, .menu-login__logout,
+#am-product__save, #amd-product__save, #product-desktop__delete-item, .product-desktop__description,
+#desktop-menu__add, #desktop-menu__delete, #desktop-menu__username {
+    cursor: pointer;
+}

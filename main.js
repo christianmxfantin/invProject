@@ -233,8 +233,8 @@ function productValues() {
 document.getElementById('login-form').addEventListener('submit',(e) => {
     e.preventDefault()
     const users = []
-    const username = document.getElementById('login-username')
-    const password = document.getElementById('login-password')
+    const username = document.getElementById('login-form__username')
+    const password = document.getElementById('login-form__password')
     const user = {
         username: username.value,
         password: password.value
@@ -242,7 +242,6 @@ document.getElementById('login-form').addEventListener('submit',(e) => {
     users.push(user)
     localStorage.setItem('Usuarios', JSON.stringify(users))
     document.getElementById('login-container').style.display = 'none'
-    document.getElementById('body').style.backgroundImage = 'none'
     screenType()
 })
 

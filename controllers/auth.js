@@ -2,14 +2,22 @@ const user = require('../models').users
 const bcrypt = require('bcrypt')
 const { validationResult } = require('express-validator')
 
+const deviceTypes = () => {
+    if (global.deviceType === 'phone') {
+        return 'mobile'
+    }else{
+        return 'desktop'
+    }
+} 
+
 module.exports = {
     register: (req, res) => {
-        res.render('auth/register')
+        res.render('auth/register', {title: 'Registro'})
     },
     create: (req, res) => {
         const errors = validationResult(req)
         if (!errors.isEmpty()) {
-            return res.render('auth/register', { errors: errors.array() })
+            return res.render('auth/register', { errors: errors.array(), title: 'Registro' })
         }
 
         let password = bcrypt.hashSync(req.body.password, 10)
@@ -24,17 +32,12 @@ module.exports = {
          })
             .then(result => {
               result.password = null
-              //preguntar si es mobile o dashboard
-              if (global.deviceType === 'phone') {
-                res.render('dashboard/mobile')
-              }else{
-                res.render('dashboard/desktop')
-              }
+              res.render(`dashboard/${deviceTypes()}`, {title: 'Inventario', background: 'none'})
             })
             .catch(err => console.log(err) )
     },
     formLogin: (req, res) => {
-        res.render('auth/login')
+        res.render('auth/login', {title: 'Inventario'})
     },
     login: (req, res) => {
         user.login(req.body.username, req.body.password)
@@ -42,12 +45,7 @@ module.exports = {
                 if (user) {
                     req.session.userId = user.id
                 }
-                //preguntar si es mobile o dashboard
-                if (global.deviceType === 'phone') {
-                    res.render('dashboard/mobile')
-                }else{
-                    res.render('dashboard/desktop')
-                }
+                res.render(`dashboard/${deviceTypes()}`, {title: 'Inventario', background: 'none'})
             })
             .catch(err => console.log(err) )
     },

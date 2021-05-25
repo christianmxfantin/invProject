@@ -1,4 +1,9 @@
 <header>
+    <% let errors %>
+    <% if (errors !== '') { %>
+        <h1> <%= errors %> </h1>
+    <% } %>   
+
     <div class="login-logo__container d-flex align-items-baseline fs-3 p-2">
         <div class="login-logo__icon 
             d-flex justify-content-center align-items-center

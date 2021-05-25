@@ -90,18 +90,5 @@ module.exports = (sequelize, DataTypes) => {
     modelName: 'users',
     timestamps: false
   });
-  users.login = (email, password) => {
-    return users.findOne({ where: { email: email }})
-      .then(user => {
-        if (!user) return null
-        return new Promise((resolve, reject) => {
-          bcrypt.compare(password, user.password, (error, valid) => {
-            if (error || !valid) reject(error)
-            resolve(user)
-          })
-        })
-      })
-      .catch(err => console.log(err))
-  }
   return users;
 };

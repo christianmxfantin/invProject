@@ -2,14 +2,6 @@ const user = require('../models').users
 const bcrypt = require('bcrypt')
 const { validationResult } = require('express-validator')
 
-const deviceTypes = () => {
-    if (global.deviceType === 'phone') {
-        return 'mobile'
-    }else{
-        return 'desktop'
-    }
-} 
-
 module.exports = {
     register: (req, res) => {
         res.render('auth/register', {title: 'Registro'})
@@ -32,7 +24,7 @@ module.exports = {
          })
             .then(result => {
               result.password = null
-              res.render(`dashboard/${deviceTypes()}`, {title: 'Inventario', background: 'none'})
+              res.render('dashboard', {title: 'Inventario', background: 'none'})
             })
             .catch(err => console.log(err) )
     },
@@ -40,14 +32,32 @@ module.exports = {
         res.render('auth/login', {title: 'Inventario'})
     },
     login: (req, res) => {
-        user.login(req.body.username, req.body.password)
+        let { username, password } = req.body
+
+        user.findOne({ where: {username: username} })
             .then(user => {
-                if (user) {
-                    req.session.userId = user.id
+                if (!user) {
+                    //Usuario incorrecto
+                    console.log('Usuario incorrecto')
+                    res.redirect('auth/login', {errors: 'Usuario incorrecto', title: 'Inventario', background: ''})
+                } else {
+                    if (bcrypt.compareSync(password, user.password)) {
+                        // Creamos la Sesion
+                        user.password = null
+                        req.session.userId = user.id
+                        res.render('dashboard', {title: 'Inventario', background: 'none'})
+                    } else {
+                        //Unauthorized Access
+                        //Contraseña incorrecta
+                        console.log('Pass incorrecto')
+                        res.render('auth/login', {errors: 'Pass incorrecto', title: 'Inventario', background: ''})
+                    }
                 }
-                res.render(`dashboard/${deviceTypes()}`, {title: 'Inventario', background: 'none'})
             })
-            .catch(err => console.log(err) )
+            .catch(err => {
+                console.log('Data incorrecto')
+                res.render('auth/login', {errors: 'Datos incorrectos', title: 'Inventario', background: ''})
+        })
     },
     logout: (req, res) => {
         req.session.destroy(() => {

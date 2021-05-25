@@ -22,7 +22,6 @@ const app = express()
 const expressLayouts = require('express-ejs-layouts')
 const methodOverride = require('method-override')
 const session = require('express-session')
-const device = require('express-device')
 const port = process.env.PORT || 3000
 
 app.use(session({
@@ -38,7 +37,6 @@ app.use(authUser)
 app.set('view engine', 'ejs')
 
 //Middlewares
-app.use(device.capture())
 app.use('/static', express.static('static'))
 app.use('/static/assets/images', express.static('static'))
 app.use(expressLayouts)
@@ -48,11 +46,6 @@ app.use(methodOverride('_method'))
 
 //Index
 app.get('/', (req, res) => {
-  if (req.device.type === 'phone') {
-    global.deviceType = 'phone'
-  }else{
-    global.deviceType = 'desktop'
-  }
   res.render('auth/login', {title: 'Inventario', background: ''})
 })
 

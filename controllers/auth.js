@@ -1,6 +1,8 @@
 const user = require('../models').users
 const bcrypt = require('bcrypt')
 const { validationResult } = require('express-validator')
+const toastr = require('toastr')
+const authConfig = require('../config/auth')
 
 module.exports = {
     register: (req, res) => {
@@ -9,10 +11,11 @@ module.exports = {
     create: (req, res) => {
         const errors = validationResult(req)
         if (!errors.isEmpty()) {
-            return res.render('auth/register', { errors: errors.array(), title: 'Registro' })
+            return res.render('auth/register', 
+                { errors: errors.array(), title: 'Registro' })
         }
 
-        let password = bcrypt.hashSync(req.body.password, 10)
+        let password = bcrypt.hashSync(req.body.password, authConfig.rounds)
 
         user.create({ 
             username: req.body.username,
@@ -39,24 +42,32 @@ module.exports = {
                 if (!user) {
                     //Usuario incorrecto
                     console.log('Usuario incorrecto')
-                    res.redirect('auth/login', {errors: 'Usuario incorrecto', title: 'Inventario', background: ''})
+                    res.status(400).render('auth/login', {
+                        toastr: toastr.error('Los datos ingresados son incorrectos'),
+                        errors: 'Los datos ingresados son incorrectos', 
+                        title: 'Inventario'
+                    })
                 } else {
                     if (bcrypt.compareSync(password, user.password)) {
-                        // Creamos la Sesion
+                        // Se crea la Sesion
                         user.password = null
                         req.session.userId = user.id
-                        res.render('dashboard', {title: 'Inventario', background: 'none'})
+                        res.status(200).render('dashboard', {title: 'Inventario', background: 'none'})
                     } else {
-                        //Unauthorized Access
                         //Contraseña incorrecta
                         console.log('Pass incorrecto')
-                        res.render('auth/login', {errors: 'Pass incorrecto', title: 'Inventario', background: ''})
+                        res.status(400).render('auth/login', {
+                            errors: 'Los datos ingresados son incorrectos', 
+                            title: 'Inventario'
+                        })
                     }
                 }
             })
             .catch(err => {
-                console.log('Data incorrecto')
-                res.render('auth/login', {errors: 'Datos incorrectos', title: 'Inventario', background: ''})
+                console.log('Algo sucedió')
+                res.status(500).render('auth/login', {
+                    errors: err, 
+                    title: 'Inventario'})
         })
     },
     logout: (req, res) => {

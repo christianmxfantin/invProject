@@ -1,0 +1,13 @@
+<% if (errors.type === 'success') { %>
+  <script>
+      toastr.success('<%= errors.msg %>')
+  </script>
+<% } else if (errors.type === 'warning') { %>
+  <script>
+      toastr.warning('<%= errors.msg %>')
+  </script>
+<% } else { %>
+  <script>
+      toastr.error('<%= errors.msg %>')
+  </script>
+<% } %>   

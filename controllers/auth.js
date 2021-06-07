@@ -43,8 +43,10 @@ module.exports = {
                     //Usuario incorrecto
                     console.log('Usuario incorrecto')
                     res.status(400).render('auth/login', {
-                        toastr: toastr.error('Los datos ingresados son incorrectos'),
-                        errors: 'Los datos ingresados son incorrectos', 
+                        errors: {
+                            type: 'warning',
+                            msg: 'Los datos ingresados son incorrectos'
+                        }, 
                         title: 'Inventario'
                     })
                 } else {
@@ -52,21 +54,32 @@ module.exports = {
                         // Se crea la Sesion
                         user.password = null
                         req.session.userId = user.id
-                        res.status(200).render('dashboard', {title: 'Inventario', background: 'none'})
+                        res.status(200).render('dashboard', {
+                            errors: {
+                                type: 'success',
+                                msg: 'Datos correctos'
+                            },
+                            title: 'Inventario', 
+                            background: 'none'})
                     } else {
                         //Contraseña incorrecta
                         console.log('Pass incorrecto')
                         res.status(400).render('auth/login', {
-                            errors: 'Los datos ingresados son incorrectos', 
+                            errors: {
+                                type: 'warning',
+                                msg: 'Los datos ingresados son incorrectos'
+                            }, 
                             title: 'Inventario'
                         })
                     }
                 }
             })
             .catch(err => {
-                console.log('Algo sucedió')
                 res.status(500).render('auth/login', {
-                    errors: err, 
+                    errors: {
+                        type: 'error',
+                        msg: err
+                    }, 
                     title: 'Inventario'})
         })
     },

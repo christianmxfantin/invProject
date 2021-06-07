@@ -1,12 +1,7 @@
 <header>
 
     <% if (typeof errors != 'undefined') { %>
-        <% console.log('en el cliente llega: ' + errors) %>
-        <%= toastr() %>
-        <!-- <h1 style="color: white;"> <%= errors %> </h1> -->
-        <!-- <script>
-            toastr.error(error)
-        </script> -->
+        <%- include('./toastr') %>
     <% } %>   
 
     <div class="login-logo__container d-flex align-items-baseline fs-3 p-2">

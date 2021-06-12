@@ -24,6 +24,10 @@ module.exports = {
         allowNull: false,
         type: Sequelize.INTEGER
       },
+      logo: {
+        allowNull: true,
+        type: Sequelize.BLOB('medium')
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,

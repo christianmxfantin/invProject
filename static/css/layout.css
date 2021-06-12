@@ -3,3 +3,7 @@
 .none {
   background-image: none;
 }
+
+.toast-top-center {
+  top: 1em;
+}

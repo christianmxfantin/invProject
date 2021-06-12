@@ -8,3 +8,7 @@ body {
     background-size: cover;
     box-sizing: border-box;
 }
+
+a {
+    text-decoration: none;
+}

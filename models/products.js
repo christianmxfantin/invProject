@@ -37,6 +37,10 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false,
       type: DataTypes.INTEGER
     },
+    logo: {
+      type: DataTypes.BLOB('medium'),
+      allowNull: true,
+    },
     createdAt: {
       allowNull: false,
       type: DataTypes.DATE,

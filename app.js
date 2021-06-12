@@ -11,10 +11,9 @@
 //npm i bcrypt
 //npm i express-session
 //npm i express-mysql-session
-//npm i express-validator
+//npm i express-validator (quitar)
 //npm i password-validator
 //npm i generate-password
-//npm i toastr
 
 
 //App
@@ -26,7 +25,7 @@ const mysql = require('mysql')
 const session = require('express-session')
 const MySQLStore = require('express-mysql-session')(session)
 const authConfig = require('./config/auth')
-const authUser = require('./middlewares/auth')
+// const authUser = require('./middlewares/auth')
 const port = process.env.PORT || 3000
 
 //Views
@@ -39,7 +38,7 @@ app.use(expressLayouts)
 app.use(express.json())
 app.use(express.urlencoded({extended: false}))
 app.use(methodOverride('_method'))
-app.use(authUser)
+// app.use(authUser)
 
 //Database Sessions
 const options = {
@@ -64,12 +63,12 @@ app.use(session({
 
 //Index
 app.get('/', (req, res) => {
-  res.render('auth/login', {title: 'Inventario', background: ''})
+  res.status(200).render('auth/login', {title: 'Inventario', background: ''})
 })
 
 
 //Rutas
 app.use(require('./routes/auth'))
-
+app.use(require('./routes/products'))
 
 app.listen(port, () => { console.log(`http://localhost:${port}`) })

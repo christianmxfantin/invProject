@@ -21,8 +21,8 @@ module.exports = (sequelize, DataTypes) => {
             msg: 'El nombre de usuario solo puede tener letras y números'
         },
         len: {
-          args: [1, 50],
-          msg: 'El nombre de usuario debe contener 1 caracter como mínimo y 50 como máximo'
+          args: [3, 50],
+          msg: 'El nombre de usuario debe contener 3 caracteres como mínimo y 50 como máximo'
         }
       }
     },
@@ -38,8 +38,8 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false,
       validate: {
         len: {
-          args: [3, 50],
-          msg: 'El nombre debe contener 3 caracteres como mínimo y 50 como máximo'
+          args: [2, 50],
+          msg: 'El nombre debe contener 2 caracteres como mínimo y 50 como máximo'
         }
       }
     },
@@ -47,9 +47,6 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING(50),
       allowNull: false,
       validate: {
-        isAlpha: {
-          msg: 'El apellido solo puede contener letras'
-        },
         len: {
           args: [2, 50],
           msg: 'El apellido debe contener 2 caracteres como mínimo y 50 como máximo'

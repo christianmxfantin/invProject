@@ -1,11 +1,7 @@
 <header>
-    <% if (typeof errors != 'undefined') { %>
-        <ul>
-            <% errors.forEach(error => { %>
-                <li><%= error.msg %></li>
-            <% }) %>   
-        </ul>
-    <% } %>   
+
+    <%- include('../partials/toastr.ejs') %>
+
     <div class="register-container container mt-5" id="register-container">
         <div class="d-flex justify-content-center align-items-center"></div>
         <form action="/register" id="register-form" method="POST">
@@ -16,7 +12,7 @@
             <div class="row justify-content-center">
                 <div class="mb-3 col-5 col-sm-4 col-md-4 col-lg-3">
                     <input type="text" class="form-control" name="name" id="register-form__name" 
-                        placeholder="Nombre" autocomplete="off" minlength="3" maxlength="50" 
+                        placeholder="Nombre" autocomplete="off" minlength="2" maxlength="50" 
                         required autofocus>
                 </div>
                 <div class="mb-3 col-5 col-sm-4 col-md-4 col-lg-3">
@@ -58,3 +54,5 @@
         </div>
     </div>
 </header>
+<body class="overflow-hidden">
+</body>

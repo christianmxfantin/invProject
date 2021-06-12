@@ -1,8 +1,5 @@
 <header>
-
-    <% if (typeof errors != 'undefined') { %>
-        <%- include('./toastr') %>
-    <% } %>   
+    <%- include('../partials/toastr.ejs') %>
 
     <div class="login-logo__container d-flex align-items-baseline fs-3 p-2">
         <div class="login-logo__icon 
@@ -43,3 +40,5 @@
         </form>
     </div>
 </header>
+<body class="overflow-hidden">
+</body>

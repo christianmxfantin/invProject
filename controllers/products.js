@@ -1,14 +1,31 @@
+let offset
 const products = require('../models').products
 
 module.exports = {
+    search: (req, res) => {
+        res.status(200).render('products/show', 
+                {
+                    title: 'Productos',
+                    background: 'none',
+                    search: 'search'
+                })
+    },
     show: (req, res) => {
-        products.findAll()
+        if (Number(req.params.pages) === 1) {
+            offset = 0
+        }else{
+            offset = (Number(req.params.pages) * 10) - 10
+        }
+        products.findAndCountAll({ limit: 10, offset })
           .then(rows => {
             res.status(200).render('products/show', 
                 {
-                    rows,
                     title: 'Productos',
-                    background: 'none'
+                    background: 'none',
+                    search: 'none',
+                    totItems: rows.count,
+                    totPages: Math.ceil(rows.count / 10),
+                    rows,
                 })
         }).catch(err => console.log(err))
     },

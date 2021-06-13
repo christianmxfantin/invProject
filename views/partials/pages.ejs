@@ -1,0 +1,34 @@
+<% let pages = 1 %> 
+
+<div class="d-flex p-3 mb-3">
+  <div class="ms-auto">
+    Mostrando 
+    <span>
+      <%= pages %>
+    </span> - 
+    <span>
+      <% if (totItems % 10) { %> 
+        <%= (pages + 10) %>
+      <% }else{ %>
+        <%= totItems %>
+      <% } %>   
+    </span> / 
+    <span>
+      <%= totItems %>
+    </span>
+  </div>
+
+  <% console.log(pages) %> 
+  <% console.log(totPages) %> 
+  <% if (pages !== 1) { %> 
+    <a href="/products/<%= (pages - 1) %>">
+      <div class="ms-2 fw-bold">&lt;</div>
+    </a>
+  <% } %> 
+
+  <% if (pages != totPages) { %> 
+    <a href="/products/<%= (pages + 1) %>">
+      <div class="ms-2 fw-bold">&gt;</div>
+    </a>
+  <% } %> 
+</div>

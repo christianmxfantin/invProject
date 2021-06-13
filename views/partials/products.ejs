@@ -1,0 +1,27 @@
+<% rows.rows.forEach(row => { %>
+  <tr>
+    <th scope="row"><%= row.dataValues.id %></th>
+    <td>
+      <div class="d-flex align-items-center">
+        <div class="logo-item rounded-circle bg-success"></div>
+        <div><%= row.dataValues.description %></div>
+      </div>
+    </td>
+    <td class="fw-bold text-primary">$ <%= row.dataValues.unit_price %></td>
+    <td>
+      <div class="container rounded bg-success text-white w-75 ms-0">
+        <%= row.dataValues.quantity %> unidades
+      </div>
+    </td>
+    <td>
+      <div class="container text-align-center">
+        <a href="">
+          <i class="text-primary fs-5 me-3 fas fa-edit"></i>
+        </a>
+        <a href="">
+          <i class="text-danger fs-5 fas fa-trash-alt"></i>
+        </a>
+      </div>
+    </td>
+  </tr>
+  <% }) %>

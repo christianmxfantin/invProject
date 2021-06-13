@@ -3,7 +3,8 @@ const router = express.Router()
 
 const products = require('../controllers/products')
 
-router.get('/products', products.show)
+router.get('/products/search/:data', products.search)
+router.get('/products/:pages', products.show)
 router.get('/products/create', products.create)
 router.get('/products/:id/edit', products.edit)
 router.put('/products/:id', products.update)

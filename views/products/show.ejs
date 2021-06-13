@@ -1,26 +1,6 @@
 <%- include('../partials/navbar.ejs') %>
 <%- include('../partials/background.ejs') %>
-
-<div class="d-flex p-3 mb-3">
-  <div class="ms-auto">
-    Mostrando 
-    <span>
-      <%= (1) %>
-    </span> - 
-    <span>
-      <%= (1 + 10) - 1 %>
-    </span> / 
-    <span>
-      <%= rows.length %>
-    </span>
-  </div>
-  <a href="">
-    <div class="ms-2 fw-bold">&lt;</div>
-  </a>
-  <a href="">
-    <div class="ms-2 fw-bold">&gt;</div>
-  </a>
-</div>
+<%- include('../partials/pages.ejs') %>
 
 <table class="table table-striped">
   <thead>
@@ -33,35 +13,10 @@
     </tr>
   </thead>
   <tbody>
-    <% console.log(rows) %>
-    <% rows.forEach(row => { %>
-      <% if (row.dataValues.id < 11) { %>
-      <tr>
-        <th scope="row"><%= row.dataValues.id %></th>
-        <td>
-          <div class="d-flex align-items-center">
-            <div class="logo-item rounded-circle bg-success"></div>
-            <div><%= row.dataValues.description %></div>
-          </div>
-        </td>
-        <td class="fw-bold text-primary">$ <%= row.dataValues.unit_price %></td>
-        <td>
-          <div class="container rounded bg-success text-white w-75 ms-0">
-            <%= row.dataValues.quantity %> unidades
-          </div>
-        </td>
-        <td>
-          <div class="container text-align-center">
-            <a href="">
-              <i class="text-primary fs-5 me-3 fas fa-edit"></i>
-            </a>
-            <a href="">
-              <i class="text-danger fs-5 fas fa-trash-alt"></i>
-            </a>
-          </div>
-        </td>
-      </tr>
-      <% } %>  
-    <% }) %>
+    <% if (search === 'none') { %>
+      <%- include('../partials/products.ejs') %>
+    <% }else{ %>
+      <%- include('../partials/search.ejs') %>
+    <% } %> 
   </tbody>
 </table>

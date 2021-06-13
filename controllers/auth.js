@@ -27,7 +27,10 @@ module.exports = {
                 email: req.body.email
             })
                 .then(result => {
+                // Se crea la Sesion
                 result.password = null
+                req.session.user = result.id
+                req.session.name = result.name.split(' ')[0]
                 res.status(200).render('dashboard', {
                     errors: {
                         type: 'success',
@@ -35,7 +38,7 @@ module.exports = {
                     },
                     title: 'Inventario', 
                     background: 'none',
-                    user: result.name.split(' ')[0]
+                    username: req.session.name
                     })
                 })
                 .catch(err => {
@@ -77,7 +80,8 @@ module.exports = {
                     if (bcrypt.compareSync(password, user.password)) {
                         // Se crea la Sesion
                         user.password = null
-                        req.session.userId = user.id
+                        req.session.user = user.id
+                        req.session.name = user.name.split(' ')[0]
                         res.status(200).render('dashboard', {
                             errors: {
                                 type: 'success',
@@ -85,7 +89,7 @@ module.exports = {
                             },
                             title: 'Inventario', 
                             background: 'none',
-                            user: user.name.split(' ')[0]
+                            username: req.session.name
                             })
                     } else {
                         //Contraseña incorrecta

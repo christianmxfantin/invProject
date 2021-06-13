@@ -22,6 +22,7 @@ module.exports = {
                 {
                     title: 'Productos',
                     background: 'none',
+                    username: req.session.name,
                     search: 'none',
                     totItems: rows.count,
                     totPages: Math.ceil(rows.count / 10),

@@ -38,7 +38,6 @@ app.use(expressLayouts)
 app.use(express.json())
 app.use(express.urlencoded({extended: false}))
 app.use(methodOverride('_method'))
-// app.use(authUser)
 
 //Database Sessions
 const options = {

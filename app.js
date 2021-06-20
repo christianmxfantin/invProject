@@ -68,6 +68,7 @@ app.get('/', (req, res) => {
 
 //Rutas
 app.use(require('./routes/auth'))
+app.use(require('./routes/dashboard'))
 app.use(require('./routes/products'))
 
 app.listen(port, () => { console.log(`http://localhost:${port}`) })

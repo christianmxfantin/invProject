@@ -15,19 +15,27 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav ms-auto m-2">
-        <form class="d-flex">
-          <input class="form-control me-2" type="search" placeholder="Buscar">
-        </form>
-        <li class="nav-item">
-          <a class="nav-link" href="#"><i class="text-white fs-4 fas fa-plus-circle"></i></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#"><i class="text-white fs-4 fas fa-trash"></i></a>
-        </li>
+        <% if (title === 'Productos') { %> 
+          <form class="d-flex">
+            <input class="form-control me-2" type="search" placeholder="Buscar">
+          </form>
+          <li class="nav-item">
+            <a class="nav-link" href="#createProduct" 
+            data-bs-toggle="modal" data-bs-target="#createProduct">
+              <i class="text-white fs-4 fas fa-plus-circle"></i>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#trashProduct" 
+            data-bs-toggle="modal" data-bs-target="#trashProduct">
+              <i class="text-white fs-4 fas fa-trash"></i>
+            </a>
+          </li>
+        <% } %> 
         <li class="nav-item">
           <a class="nav-link" href="#">
             <div class="d-flex align-items-center text-white fs-5">
-              <div class="logo-item rounded-circle bg-success"></div>
+              <!-- <div class="logo-item rounded-circle bg-success"></div> -->
               <div>  
                 <%= username %> 
               </div>
@@ -41,3 +49,13 @@
     </div>
   </div>
 </nav>
+
+<div class="modal fade" id="createProduct" data-bs-backdrop="static" data-bs-keyboard="false" 
+  tabindex="-1" aria-labelledby="createProductLabel" aria-hidden="true">
+  <%- include('../products/create.ejs') %>
+</div>
+
+<div class="modal fade" id="trashProduct" data-bs-backdrop="static" data-bs-keyboard="false" 
+  tabindex="-1" aria-labelledby="trashProductLabel" aria-hidden="true">
+  <%- include('../products/trash.ejs') %>
+</div>

@@ -30,6 +30,7 @@ module.exports = {
                 // Se crea la Sesion
                 result.password = null
                 req.session.user = result.id
+                req.session.username = result.username
                 req.session.name = result.name.split(' ')[0]
                 res.status(200).render('dashboard', {
                     errors: {
@@ -81,6 +82,7 @@ module.exports = {
                         // Se crea la Sesion
                         user.password = null
                         req.session.user = user.id
+                        req.session.username = user.username
                         req.session.name = user.name.split(' ')[0]
                         res.status(200).render('dashboard', {
                             errors: {

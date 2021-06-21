@@ -1,5 +1,3 @@
-<% let pages = 1 %> 
-
 <div class="d-flex p-3 mb-3">
   <div class="ms-auto">
     Mostrando 
@@ -8,7 +6,7 @@
     </span> - 
     <span>
       <% if (totItems % 10) { %> 
-        <%= (pages + 10) %>
+        <%= (pages + (10 - pages)) %>
       <% }else{ %>
         <%= totItems %>
       <% } %>   
@@ -18,17 +16,20 @@
     </span>
   </div>
 
-  <% console.log(pages) %> 
-  <% console.log(totPages) %> 
-  <% if (pages !== 1) { %> 
-    <a href="/products/<%= (pages - 1) %>">
+
+  <% if (pages > 1) { %> 
+    <a href="/products/<%= action %>/<%= (pages - 1) %>">
       <div class="ms-2 fw-bold">&lt;</div>
+      <% action = 'back' %>
+      <% console.log(action + ' ' + (pages - 1)) %> 
     </a>
   <% } %> 
 
   <% if (pages != totPages) { %> 
-    <a href="/products/<%= (pages + 1) %>">
+    <a href="/products/<%= action %>/<%= (pages + 1) %>">
       <div class="ms-2 fw-bold">&gt;</div>
+      <% action = 'forward' %>
+      <% console.log(action + ' ' + (pages + 1)) %> 
     </a>
   <% } %> 
 </div>

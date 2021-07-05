@@ -1,35 +1,21 @@
 <div class="d-flex p-3 mb-3">
   <div class="ms-auto">
-    Mostrando 
-    <span>
-      <%= pages %>
-    </span> - 
-    <span>
-      <% if (totItems % 10) { %> 
-        <%= (pages + (10 - pages)) %>
-      <% }else{ %>
-        <%= totItems %>
-      <% } %>   
-    </span> / 
-    <span>
-      <%= totItems %>
-    </span>
+    Mostrando
+    <span> <%= 1 + (10 * (currentPage - 1)) %> </span>
+    -
+    <span> <%= 10 + (10 * (currentPage - 1)) %> </span>
+    /
+    <span> <%= totItems %> </span>
   </div>
 
-
-  <% if (pages > 1) { %> 
-    <a href="/products/<%= action %>/<%= (pages - 1) %>">
-      <div class="ms-2 fw-bold">&lt;</div>
-      <% action = 'back' %>
-      <% console.log(action + ' ' + (pages - 1)) %> 
-    </a>
-  <% } %> 
-
-  <% if (pages != totPages) { %> 
-    <a href="/products/<%= action %>/<%= (pages + 1) %>">
-      <div class="ms-2 fw-bold">&gt;</div>
-      <% action = 'forward' %>
-      <% console.log(action + ' ' + (pages + 1)) %> 
-    </a>
-  <% } %> 
+  <% if (currentPage > 1) { %>
+  <a href="/products/<%= (parseInt(currentPage) - 1) %>">
+    <div class="ms-2 fw-bold">&lt;</div>
+    <% console.log(parseInt(currentPage) - 1) %>
+  </a>
+  <% } %> <% if (currentPage != totPages) { %>
+  <a href="/products/<%= (currentPage) %>">
+    <div class="ms-2 fw-bold">&gt;</div>
+  </a>
+  <% } %>
 </div>

@@ -1,36 +1,56 @@
-<% rows.rows.forEach(row => { %>
-  <tr>
-    <th scope="row"><%= row.dataValues.id %></th>
-    <td>
-      <div><%= row.dataValues.description %></div>
-    </td>
-    <td class="fw-bold text-primary">$ <%= row.dataValues.unit_price %></td>
-    <td>
-      <div class="container rounded bg-success text-white w-75 ms-0">
-        <%= row.dataValues.quantity %> unidades
-      </div>
-    </td>
-    <td>
-      <div class="container text-align-center">
-        <a href="#editProduct" 
-          data-bs-toggle="modal" data-bs-target="#editProduct">
-          <i class="text-primary fs-5 me-3 fas fa-edit"></i>
-        </a>
-        <a href="#deleteProduct" 
-          data-bs-toggle="modal" data-bs-target="#deleteProduct">
-          <i class="text-danger fs-5 fas fa-trash-alt"></i>
-        </a>
-      </div>
-    </td>
-  </tr>
+<% rows.rows.forEach((row, index) => { %>
+<tr>
+  <th scope="row"><%= index + 1 + (10 * (currentPage - 1)) %></th>
+  <td>
+    <div><%= row.dataValues.description %></div>
+  </td>
+  <td class="fw-bold text-primary">$ <%= row.dataValues.unit_price %></td>
+  <td>
+    <div class="container rounded bg-success text-white w-75 ms-0">
+      <%= row.dataValues.quantity %> unidades
+    </div>
+  </td>
+  <td>
+    <div class="container text-align-center">
+      <a
+        href="#editProduct"
+        data-bs-toggle="modal"
+        data-bs-target="#editProduct"
+      >
+        <i class="text-primary fs-5 me-3 fas fa-edit"></i>
+      </a>
+      <a
+        href="#deleteProduct"
+        data-bs-toggle="modal"
+        data-bs-target="#deleteProduct"
+      >
+        <i class="text-danger fs-5 fas fa-trash-alt"></i>
+      </a>
+    </div>
+  </td>
+</tr>
 <% }) %>
 
-<div class="modal fade" id="editProduct" data-bs-backdrop="static" data-bs-keyboard="false" 
-  tabindex="-1" aria-labelledby="editProductLabel" aria-hidden="true">
+<div
+  class="modal fade"
+  id="editProduct"
+  data-bs-backdrop="static"
+  data-bs-keyboard="false"
+  tabindex="-1"
+  aria-labelledby="editProductLabel"
+  aria-hidden="true"
+>
   <%- include('../products/edit.ejs') %>
 </div>
 
-<div class="modal fade" id="deleteProduct" data-bs-backdrop="static" data-bs-keyboard="false" 
-  tabindex="-1" aria-labelledby="deleteProductLabel" aria-hidden="true">
+<div
+  class="modal fade"
+  id="deleteProduct"
+  data-bs-backdrop="static"
+  data-bs-keyboard="false"
+  tabindex="-1"
+  aria-labelledby="deleteProductLabel"
+  aria-hidden="true"
+>
   <%- include('../products/delete.ejs') %>
 </div>

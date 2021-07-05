@@ -9,9 +9,8 @@
   </div>
 
   <% if (currentPage > 1) { %>
-  <a href="/products/<%= (parseInt(currentPage) - 1) %>">
+  <a href="/products/<%= (Number(currentPage) - 2) %>">
     <div class="ms-2 fw-bold">&lt;</div>
-    <% console.log(parseInt(currentPage) - 1) %>
   </a>
   <% } %> <% if (currentPage != totPages) { %>
   <a href="/products/<%= (currentPage) %>">

@@ -3,7 +3,10 @@
     Mostrando
     <span> <%= 1 + (10 * (currentPage - 1)) %> </span>
     -
-    <span> <%= 10 + (10 * (currentPage - 1)) %> </span>
+    <span>
+      <% if (currentPage != totPages) { %> <%= 10 + (10 * (currentPage - 1)) %>
+      <% } else { %> <%= totItems %> <% } %>
+    </span>
     /
     <span> <%= totItems %> </span>
   </div>

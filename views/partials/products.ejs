@@ -7,13 +7,15 @@
   <td class="fw-bold text-primary">$ <%= row.dataValues.unit_price %></td>
   <td>
     <div class="container rounded bg-success text-white w-75 ms-0">
-      <%= row.dataValues.quantity %> unidades
+      <% if (row.dataValues.quantity === 1) { %> <%= `${row.dataValues.quantity}
+      unidad`%> <% } else { %> <%= `${row.dataValues.quantity} unidades`%> <% }
+      %>
     </div>
   </td>
   <td>
     <div class="container text-align-center">
       <a
-        href="#editProduct"
+        href="/products/<%= row.dataValues.id %>/#editProduct"
         data-bs-toggle="modal"
         data-bs-target="#editProduct"
       >

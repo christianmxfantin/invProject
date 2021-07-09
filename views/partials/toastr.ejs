@@ -1,35 +1,33 @@
 <script>
   toastr.options = {
-    "closeButton": false,
-    "debug": false,
-    "newestOnTop": false,
-    "progressBar": false,
-    "positionClass": "toast-top-center",
-    "preventDuplicates": false,
-    "onclick": null,
-    "showDuration": "300",
-    "hideDuration": "1000",
-    "timeOut": "3000",
-    "extendedTimeOut": "1000",
-    "showEasing": "swing",
-    "hideEasing": "linear",
-    "showMethod": "fadeIn",
-    "hideMethod": "fadeOut"
-  }
+    closeButton: false,
+    debug: false,
+    newestOnTop: false,
+    progressBar: false,
+    positionClass: "toast-top-center",
+    preventDuplicates: false,
+    onclick: null,
+    showDuration: "300",
+    hideDuration: "1000",
+    timeOut: "3000",
+    extendedTimeOut: "1000",
+    showEasing: "swing",
+    hideEasing: "linear",
+    showMethod: "fadeIn",
+    hideMethod: "fadeOut",
+  };
 </script>
 
-<% if (typeof errors != 'undefined') { %>
-    <% if (errors.type === 'success') { %>
-      <script>
-          toastr["success"]('<%= errors.msg %>')
-      </script>
-    <% } else if (errors.type === 'warning') { %>
-      <script>
-          toastr["warning"]('<%= errors.msg %>')
-      </script>
-    <% } else { %>
-      <script>
-          toastr["error"]('<%= errors.msg %>')
-      </script>
-    <% } %>   
-<% } %>   
+<% if (typeof errors != 'undefined') { %> <% if (errors.type === 'success') { %>
+<script>
+  toastr["success"]("<%= errors.msg %>");
+</script>
+<% } else if (errors.type === 'warning') { %>
+<script>
+  toastr["warning"]("<%= errors.msg %>");
+</script>
+<% } else if (errors.type === 'none') { %> <% } else { %>
+<script>
+  toastr["error"]("<%= errors.msg %>");
+</script>
+<% } %> <% } %>

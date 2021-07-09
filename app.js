@@ -24,7 +24,6 @@ const mysql = require("mysql");
 const session = require("express-session");
 const MySQLStore = require("express-mysql-session")(session);
 const authConfig = require("./config/auth");
-// const authUser = require('./middlewares/auth')
 const port = process.env.PORT || 4000;
 
 //Views

@@ -14,14 +14,6 @@ const showProducts = (page, session, res, type, msg) => {
         totItems: rows.count,
         totPages: Math.ceil(rows.count / 10),
         currentPage: parseInt(page) + 1,
-        row: {
-          dataValues: {
-            id: 0,
-            description: "Descripción",
-            unit_price: 0.0,
-            quantity: 0,
-          },
-        },
         rows,
         errors: {
           type,
@@ -69,7 +61,7 @@ module.exports = {
       .findByPk(req.params.id)
       .then((row) => {
         console.log(row);
-        res.status(200).render("products/edit", { row });
+        res.status(200).json(row);
       })
       .catch((err) => console.log(err));
   },
@@ -99,7 +91,7 @@ module.exports = {
   },
   trash: (req, res) => {
     products
-      .destroy({ where: { id: req.params.id } })
+      .destroy()
       .then(() => {
         showProducts(req.params.page, req.session.name, res, "none", "");
       })

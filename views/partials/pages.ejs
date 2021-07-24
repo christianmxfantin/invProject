@@ -12,12 +12,18 @@
   </div>
 
   <% if (currentPage > 1) { %>
+  <a href="/products/0">
+    <div class="ms-2 fw-bold">&lt;&lt;</div>
+  </a>
   <a href="/products/<%= (Number(currentPage) - 2) %>">
     <div class="ms-2 fw-bold">&lt;</div>
   </a>
   <% } %> <% if (currentPage != totPages) { %>
   <a href="/products/<%= (currentPage) %>">
     <div class="ms-2 fw-bold">&gt;</div>
+  </a>
+  <a href="/products/<%= (totPages - 1) %>">
+    <div class="ms-2 fw-bold">&gt;&gt;</div>
   </a>
   <% } %>
 </div>

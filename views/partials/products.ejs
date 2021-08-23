@@ -50,7 +50,7 @@
             </div>
             <div class="modal-body">
               <form
-                action="/products/<%= row.dataValues.id %>?_method=PUT"
+                action="/products/<%= row.dataValues.id %>/edit?_method=PUT"
                 method="POST"
               >
                 <div class="mb-3">
@@ -101,50 +101,9 @@
         </div>
       </div>
 
-      <a
-        href="#deleteProduct"
-        data-bs-toggle="modal"
-        data-bs-target="#deleteProduct"
-      >
+      <a>
         <i class="text-danger fs-5 fas fa-trash-alt"></i>
       </a>
-
-      <div
-        class="modal fade"
-        id="deleteProduct"
-        data-bs-backdrop="static"
-        data-bs-keyboard="false"
-        tabindex="-1"
-        aria-labelledby="deleteProductLabel"
-        aria-hidden="true"
-      >
-        <div class="modal-dialog modal-dialog-centered">
-          <div class="modal-content">
-            <div class="modal-header bg-warning">
-              <h5 class="modal-title" id="deleteProductLabel">Eliminar</h5>
-              <button
-                type="button"
-                class="btn-close"
-                data-bs-dismiss="modal"
-                aria-label="Close"
-              ></button>
-            </div>
-            <div class="modal-body">
-              ¿Desea eliminar el producto seleccionado?
-            </div>
-            <div class="modal-footer justify-content-center">
-              <form
-                action="/products/<%= row.dataValues.id %>?_method=DELETE"
-                method="POST"
-              >
-                <button type="submit" class="btn btn-info delete-product">
-                  Aceptar
-                </button>
-              </form>
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
   </td>
 </tr>
@@ -169,18 +128,21 @@
             res.data.unit_price;
         })
         .catch((err) => console.log(err));
-    } else if (e.target.classList.contains("delete-product")) {
-      idProduct = Number(
-        e.target.parentElement.parentElement.parentElement.parentElement
-          .children[0].attributes[0].value
-      );
-      console.log("borrar: " + idProduct);
-      axios
-        .delete(`/products/${idProduct}`)
-        .then((res) => {
-          toastr["success"]("El producto se ha borrado");
-        })
-        .catch((err) => console.log(err));
     }
+    // else if (e.target.classList.contains("fa-trash-alt")) {
+    //   idProduct = Number(
+    //     e.target.parentElement.parentElement.parentElement.parentElement
+    //       .children[0].attributes[0].value
+    //   );
+    //   console.log("borrar: " + idProduct);
+    //   if (confirm("¿Esta seguro que desea eliminar el producto?")) {
+    //     axios
+    //       .delete(`/products/${idProduct}`)
+    //       .then((res) => {
+    //         toastr["success"]("El producto se ha borrado");
+    //       })
+    //       .catch((err) => console.log(err));
+    //   }
+    // }
   });
 </script>

@@ -1,61 +1,99 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-info">
   <div class="container-fluid">
-    <!-- <span class="navbar-brand">Inventario</span> -->
     <a href="/dashboard">
       <div class="d-flex align-items-baseline fs-5 p-2">
-        <div class="d-flex justify-content-center align-items-center
-            p-2 rounded-circle text-white bg-success">.inv</div>
+        <div
+          class="
+            d-flex
+            justify-content-center
+            align-items-center
+            p-2
+            rounded-circle
+            text-white
+            bg-success
+          "
+        >
+          .inv
+        </div>
         <div class="ms-2 text-white">Inventario</div>
       </div>
     </a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" 
-      data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" 
-      aria-expanded="false" aria-label="Toggle navigation">
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav ms-auto m-2">
-        <% if (title === 'Productos') { %> 
-          <form class="d-flex">
-            <input class="form-control me-2" type="search" placeholder="Buscar">
-          </form>
-          <li class="nav-item">
-            <a class="nav-link" href="#createProduct" 
-            data-bs-toggle="modal" data-bs-target="#createProduct">
-              <i class="text-white fs-4 fas fa-plus-circle"></i>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#trashProduct" 
-            data-bs-toggle="modal" data-bs-target="#trashProduct">
-              <i class="text-white fs-4 fas fa-trash"></i>
-            </a>
-          </li>
-        <% } %> 
+        <% if (title === 'Productos') { %>
+        <form class="d-flex">
+          <input class="form-control me-2" type="search" placeholder="Buscar" />
+        </form>
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            href="#createProduct"
+            data-bs-toggle="modal"
+            data-bs-target="#createProduct"
+          >
+            <i class="text-white fs-4 fas fa-plus-circle"></i>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            href="#trashProduct"
+            data-bs-toggle="modal"
+            data-bs-target="#trashProduct"
+          >
+            <i class="text-white fs-4 fas fa-trash"></i>
+          </a>
+        </li>
+        <% } %>
         <li class="nav-item">
           <a class="nav-link" href="#">
             <div class="d-flex align-items-center text-white fs-5">
               <!-- <div class="logo-item rounded-circle bg-success"></div> -->
-              <div>  
-                <%= username %> 
-              </div>
+              <div><%= username %></div>
             </div>
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link mt-1" href="/logout"><i class="text-white fs-4 fas fa-sign-out-alt"></i></a>
+          <a class="nav-link mt-1" href="/logout"
+            ><i class="text-white fs-4 fas fa-sign-out-alt"></i
+          ></a>
         </li>
       </ul>
     </div>
   </div>
 </nav>
 
-<div class="modal fade" id="createProduct" data-bs-backdrop="static" data-bs-keyboard="false" 
-  tabindex="-1" aria-labelledby="createProductLabel" aria-hidden="true">
+<div
+  class="modal fade"
+  id="createProduct"
+  data-bs-backdrop="static"
+  data-bs-keyboard="false"
+  tabindex="-1"
+  aria-labelledby="createProductLabel"
+  aria-hidden="true"
+>
   <%- include('../products/create.ejs') %>
 </div>
 
-<div class="modal fade" id="trashProduct" data-bs-backdrop="static" data-bs-keyboard="false" 
-  tabindex="-1" aria-labelledby="trashProductLabel" aria-hidden="true">
+<div
+  class="modal fade"
+  id="trashProduct"
+  data-bs-backdrop="static"
+  data-bs-keyboard="false"
+  tabindex="-1"
+  aria-labelledby="trashProductLabel"
+  aria-hidden="true"
+>
   <%- include('../products/trash.ejs') %>
 </div>

@@ -7,7 +7,7 @@ router.get("/products/search/:data", products.search);
 router.get("/products/:page", products.show);
 router.post("/products/:page", products.create);
 router.get("/products/edit/:id", products.edit);
-router.put("/products/:id", products.update);
+router.put("/products/:id/edit", products.update);
 router.delete("/products/:id", products.destroy);
 router.delete("/products/", products.trash);
 

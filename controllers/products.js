@@ -36,7 +36,7 @@ module.exports = {
     showProducts(req.params.page, req.session.name, res, "none", "");
   },
   create: (req, res) => {
-    console.log(req.params);
+    console.log("BACK crear: " + req.params);
     products
       .create({
         username: req.session.username,
@@ -56,7 +56,7 @@ module.exports = {
       .catch((err) => console.log(err));
   },
   edit: (req, res) => {
-    console.log(req.params);
+    console.log("BACK editar: " + req.params);
     products
       .findByPk(req.params.id)
       .then((row) => {
@@ -66,6 +66,8 @@ module.exports = {
       .catch((err) => console.log(err));
   },
   update: (req, res) => {
+    console.log("edita");
+    console.log(req.body);
     products
       .update(
         {

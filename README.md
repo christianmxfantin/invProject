@@ -11,6 +11,7 @@ npm install
 ```
 
 Then, install Xampp or similar program to run MySQL
+
 Create a database called inventory
 
 Run the migrations to create the tables:

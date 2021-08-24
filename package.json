@@ -5,7 +5,6 @@
   "main": "app.js",
   "scripts": {
     "dev": "nodemon app.js",
-    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node app.js"
   },
   "repository": {
@@ -13,7 +12,7 @@
     "url": "git+https://github.com/christianmxfantin/invproject.git"
   },
   "keywords": [],
-  "author": "",
+  "author": "Christian Maximiliano Fantin",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/christianmxfantin/invproject/issues"

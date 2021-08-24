@@ -39,11 +39,11 @@ app.use(methodOverride("_method"));
 
 //Database Sessions
 const options = {
-  host: "127.0.0.1",
-  port: 3306,
-  user: "root",
-  password: null,
-  database: "inventory",
+  host: "us-cdbr-east-04.cleardb.com",
+  //port: 3306,
+  user: "ba2ca910dee308",
+  password: "ea22f49d",
+  database: "heroku_1ca527383d94ef2",
 };
 
 const connection = mysql.createConnection(options);

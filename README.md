@@ -35,4 +35,5 @@ The password for the predefined users is 12345678
 
 ## Demo
 
-If you want to see the demo of this proyect deployed, you can visit [Inventario] (https://invproject.herokuapp.com/)
+If you want to see the demo of this proyect deployed, you can visit:
+https://invproject.herokuapp.com

@@ -29,7 +29,7 @@ sequelize-cli.cmd db:seed:all
 Type and execute to start the application:
 
 ```
-node start
+npm start
 ```
 
 The password for the predefined users is 12345678

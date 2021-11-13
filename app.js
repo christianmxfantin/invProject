@@ -1,20 +1,3 @@
-//INSTALAR EN NODE
-//npm init -y
-//npm i express
-//npm i sequelize
-//npm i -g sequelize-cli
-//npm i ejs
-//npm i express-ejs-layouts
-//npm i mysql
-//npm i mysql2
-//npm i method-override
-//npm i bcrypt
-//npm i express-session
-//npm i express-mysql-session
-//npm i express-validator (quitar)
-//npm i password-validator
-//npm i generate-password
-
 //App
 const express = require("express");
 const app = express();
@@ -25,6 +8,8 @@ const session = require("express-session");
 const MySQLStore = require("express-mysql-session")(session);
 const authConfig = require("./config/auth");
 const port = process.env.PORT || 4000;
+const dotenv = require("dotenv");
+dotenv.config();
 
 //Views
 app.set("view engine", "ejs");
@@ -39,11 +24,11 @@ app.use(methodOverride("_method"));
 
 //Database Sessions
 const options = {
-  host: "us-cdbr-east-04.cleardb.com",
-  port: 3306,
-  user: "ba2ca910dee308",
-  password: "ea22f49d",
-  database: "heroku_1ca527383d94ef2",
+  host: process.env.DB_HOST,
+  port: parseInt(process.env.DB_PORT, 10),
+  user: process.env.DB_USER,
+  password: process.env.DB_PASS,
+  database: process.env.DB_NAME,
 };
 
 const connection = mysql.createConnection(options);
@@ -64,7 +49,7 @@ app.get("/", (req, res) => {
   res.status(200).render("auth/login", { title: "Inventario", background: "" });
 });
 
-//Rutas
+//Routes
 app.use(require("./routes/auth"));
 app.use(require("./routes/dashboard"));
 app.use(require("./routes/products"));

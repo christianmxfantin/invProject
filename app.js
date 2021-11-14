@@ -6,10 +6,10 @@ const methodOverride = require("method-override");
 const mysql = require("mysql");
 const session = require("express-session");
 const MySQLStore = require("express-mysql-session")(session);
+dotenv.config();
 const authConfig = require("./config/auth");
 const port = process.env.PORT || 4000;
 const dotenv = require("dotenv");
-dotenv.config();
 
 //Views
 app.set("view engine", "ejs");

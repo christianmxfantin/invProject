@@ -1,6 +1,6 @@
 require("dotenv").config();
 
-module.exports = {
+module.exports = async () => ({
   development: {
     username: "root",
     password: null,
@@ -22,4 +22,4 @@ module.exports = {
     host: process.env.DB_HOST,
     dialect: "mysql",
   },
-};
+});
